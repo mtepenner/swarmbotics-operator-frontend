@@ -1,0 +1,49 @@
+swarmbotics_operator_frontend/
+├── atak_plugin/                        # ATAK Integration for dismounted soldiers
+│   ├── app/src/main/
+│   │   ├── java/com/swarmbotics/atak/
+│   │   │   ├── SwarmMapComponent.kt    # Main ATAK plugin entry point
+│   │   │   ├── map_overlays/
+│   │   │   │   ├── UGV_Marker.kt       # Renders standard MIL-STD-2525 icons for the swarm
+│   │   │   │   └── Threat_Polygon.kt   # Draws dynamic zones based on UGV sensor fusion
+│   │   │   ├── comms_bridge/
+│   │   │   │   ├── GrpcClient.kt       # Lightweight client to talk to the C2 API Gateway
+│   │   │   │   └── CoT_Translator.kt   # Converts swarm telemetry into Cursor-on-Target XML messages
+│   │   │   └── tasking_ui/
+│   │   │       └── RadialMenu.kt       # Quick-action menus for issuing high-level commands (e.g., "Defend")
+│   │   └── res/                        # Android resources (layouts, icons)
+│   │       └── layout/
+│   │           └── pip_video_feed.xml  # Picture-in-Picture view for quick ISR checks
+│   └── build.gradle.kts                # Android/ATAK build configurations
+│
+├── web_mission_control/                # Web-Based Mission Control (React / TypeScript)
+│   ├── public/
+│   ├── src/
+│   │   ├── components/                 # Reusable UI elements
+│   │   │   ├── map_engine/             # CesiumJS or Mapbox integration for 3D battlespace rendering
+│   │   │   └── telemetry_graphs/       # Real-time throughput and latency charts
+│   │   ├── views/                      # Main operational dashboards
+│   │   │   ├── GlobalOverview.tsx      # High-level map showing all active nodes and mission progress
+│   │   │   └── KillChainManager.tsx    # Interface to approve/deny autonomous kinetic actions
+│   │   ├── state_management/
+│   │   │   └── swarmStore.ts           # Redux/Zustand store managing the state of 100+ robots
+│   │   └── network_services/
+│   │       └── grpc_web_client.ts      # Connects the browser to the backend gRPC streams
+│   ├── package.json
+│   └── vite.config.ts                  # Fast build tooling
+│
+└── teleoperation_fallback/             # "Jump In" Direct Control Module (Shared Library)
+    ├── src/
+    │   ├── video_consumer/
+    │   │   ├── webrtc_player.ts        # Ultra-low latency video stream consumer (<100ms)
+    │   │   └── hud_overlay.tsx         # Draws pitch, roll, and battery warnings over the video feed
+    │   ├── input_handlers/
+    │   │   ├── gamepad_api.ts          # Captures Xbox/PlayStation controller or HOTAS inputs
+    │   │   └── command_throttler.ts    # Prevents input flooding over degraded networks
+    │   └── payload_controls/
+    │       ├── trigger_manager.ts      # Safety-locked interface for deploying EW or kinetic payloads
+    │       └── ptz_camera_control.ts   # Pan-Tilt-Zoom controls for the ISR mast
+    └── index.ts                        # Exports the module for use in both ATAK and the Web TOC
+
+
+
