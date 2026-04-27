@@ -1,7 +1,7 @@
 # Operator Frontend: Human-Swarm Interface
 
 ## Description
-`swarmbotics_operator_frontend` is a comprehensive user interface suite designed for commanding and controlling massive-scale robotic swarms. It bridges the gap between tactical edge devices and command centers by providing an ATAK plugin for dismounted soldiers, a React and TypeScript-based Web Mission Control dashboard, and an ultra-low latency teleoperation fallback module.
+`swarmbotics-operator-frontend` is a comprehensive user interface suite designed for commanding and controlling massive-scale robotic swarms. It bridges the gap between tactical edge devices and command centers by providing an ATAK plugin for dismounted soldiers, a React and TypeScript-based Web Mission Control dashboard, and an ultra-low latency teleoperation fallback module.
 
 ## Table of Contents
 - [Features](#-features)
@@ -42,7 +42,7 @@
 ### Web Mission Control
 1. Navigate to the web application directory:
    ```bash
-   cd web_mission_control
+   cd web-mission-control
    ```
 2. Install dependencies:
    ```bash
@@ -54,14 +54,14 @@
    ```
 
 ### ATAK Plugin
-1. Open the `atak_plugin` directory in Android Studio.
+1. Open the `atak-plugin` directory in Android Studio.
 2. Sync the project with Gradle files (`build.gradle.kts`).
 3. Build the APK and deploy it to your ATAK-enabled Android device.
 
 ## 💻 Usage
 
 * **Approving Actions**: Open the Web TOC, navigate to the `KillChainManager` view, and review pending autonomous actions before providing operator authorization.
-* **Manual Override**: If a UGV gets stuck, engage the `teleoperation_fallback` module. Connect a compatible gamepad, view the low-latency WebRTC feed, and manually pilot the asset.
+* **Manual Override**: If a UGV gets stuck, engage the `teleoperation-fallback` module. Connect a compatible gamepad, view the low-latency WebRTC feed, and manually pilot the asset.
 * **Field Coordination**: Dismounted soldiers can open their ATAK device, view UGV markers, and use the radial menu to set defensive perimeters dynamically.
 
 ## 🤝 Contributing
