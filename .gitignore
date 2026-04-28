@@ -1,0 +1,24 @@
+# Editor and OS files
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# Node and frontend artifacts
+**/node_modules/
+**/dist/
+**/.vite/
+*.tsbuildinfo
+
+# Android and Gradle artifacts
+**/.gradle/
+**/build/
+**/local.properties
+*.iml
+
+# Logs and environment files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env
+.env.*

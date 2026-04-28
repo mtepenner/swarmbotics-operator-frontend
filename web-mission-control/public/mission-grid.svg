@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#101615" />
+  <g stroke="#30423E" stroke-width="1" opacity="0.65">
+    <path d="M0 120H1200" />
+    <path d="M0 240H1200" />
+    <path d="M0 360H1200" />
+    <path d="M0 480H1200" />
+    <path d="M0 600H1200" />
+    <path d="M150 0V720" />
+    <path d="M300 0V720" />
+    <path d="M450 0V720" />
+    <path d="M600 0V720" />
+    <path d="M750 0V720" />
+    <path d="M900 0V720" />
+    <path d="M1050 0V720" />
+  </g>
+  <g opacity="0.35">
+    <path d="M120 80C360 0 640 0 1080 120" stroke="#C9A574" stroke-width="3" />
+    <path d="M140 610C420 520 760 500 1020 620" stroke="#7D9951" stroke-width="3" />
+  </g>
+</svg>

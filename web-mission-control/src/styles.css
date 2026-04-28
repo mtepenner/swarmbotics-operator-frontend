@@ -1,0 +1,399 @@
+:root {
+  color-scheme: dark;
+  --canvas: #101615;
+  --panel: rgba(20, 30, 29, 0.9);
+  --panel-strong: rgba(27, 37, 34, 0.96);
+  --ink: #f6ebd9;
+  --muted: #b8b1a4;
+  --sand: #d4ac6f;
+  --olive: #7e9a53;
+  --ember: #f28b3c;
+  --border: rgba(212, 172, 111, 0.18);
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  font-family: "Space Grotesk", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(212, 172, 111, 0.25), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(126, 154, 83, 0.2), transparent 34%),
+    linear-gradient(140deg, #0d1211, #111918 48%, #192120);
+  font-family: "Space Grotesk", sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 68px 68px;
+  mask-image: radial-gradient(circle at center, black, transparent 78%);
+}
+
+button,
+small,
+.eyebrow,
+.panel-note,
+.telemetry-graph__meta,
+.selected-node dt,
+.action-card__status,
+.teleop-readouts span,
+.hud-overlay,
+.command-bar__metrics span {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.app-shell {
+  position: relative;
+  padding: 24px;
+}
+
+.command-bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: end;
+  padding-bottom: 18px;
+}
+
+.command-bar h1,
+.panel-heading h2,
+.selected-node h3 {
+  margin: 0;
+  font-size: clamp(1.4rem, 1.2rem + 1vw, 2.4rem);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--sand);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.74rem;
+}
+
+.command-bar__metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, 1fr));
+  gap: 12px;
+  min-width: min(100%, 420px);
+}
+
+.command-bar__metrics article,
+.overview-stats article,
+.teleop-readouts article,
+.selected-node,
+.telemetry-graph,
+.action-card,
+.side-brief,
+.battlespace-map,
+.command-panel,
+.teleop-panel {
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(33, 44, 42, 0.94), rgba(18, 27, 26, 0.98));
+  box-shadow: var(--shadow);
+}
+
+.command-bar__metrics article,
+.overview-stats article,
+.teleop-readouts article {
+  padding: 14px 16px;
+  border-radius: 18px;
+}
+
+.command-bar__metrics strong,
+.overview-stats strong,
+.teleop-readouts strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 1.15rem;
+}
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(320px, 0.95fr);
+  gap: 18px;
+}
+
+.dashboard-layout__main,
+.dashboard-layout__side {
+  display: grid;
+  gap: 18px;
+}
+
+.panel {
+  border-radius: 26px;
+  padding: 18px;
+}
+
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 16px;
+}
+
+.panel-note {
+  margin: 0;
+  max-width: 34ch;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.overview-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.9fr);
+  gap: 14px;
+}
+
+.battlespace-map {
+  min-height: 470px;
+  padding: 10px;
+  border-radius: 24px;
+}
+
+.battlespace-map svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.map-node-group {
+  cursor: pointer;
+}
+
+.overview-side {
+  display: grid;
+  gap: 12px;
+}
+
+.selected-node,
+.telemetry-graph {
+  border-radius: 20px;
+  padding: 14px 16px;
+}
+
+.selected-node dl,
+.action-card dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0 0;
+}
+
+.selected-node dt,
+.action-card dt {
+  font-size: 0.73rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.selected-node dd,
+.action-card dd {
+  margin: 4px 0 0;
+}
+
+.telemetry-graph__meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.action-list {
+  display: grid;
+  gap: 12px;
+}
+
+.action-card {
+  border-radius: 20px;
+  padding: 16px;
+}
+
+.action-card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.action-card__header span {
+  display: block;
+  color: var(--muted);
+}
+
+.action-card__status {
+  align-self: start;
+  border-radius: 999px;
+  padding: 5px 10px;
+  background: rgba(212, 172, 111, 0.14);
+  color: var(--sand);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+.action-card--approved .action-card__status {
+  background: rgba(126, 154, 83, 0.16);
+  color: #bfe28f;
+}
+
+.action-card--denied .action-card__status {
+  background: rgba(242, 139, 60, 0.18);
+  color: #ffb37c;
+}
+
+.action-card__controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 11px 16px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1a211f;
+  background: linear-gradient(135deg, var(--sand), #f5d2a1);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.button-secondary {
+  color: var(--ink);
+  background: linear-gradient(135deg, rgba(126, 154, 83, 0.4), rgba(126, 154, 83, 0.18));
+}
+
+.teleop-panel {
+  display: grid;
+  gap: 14px;
+}
+
+.teleop-stage {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 172, 111, 0.12);
+}
+
+.teleop-stage__screen {
+  position: relative;
+  min-height: 280px;
+  background: linear-gradient(160deg, #1b2826, #111818);
+}
+
+.teleop-stage__grid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+  filter: saturate(0.85);
+}
+
+.teleop-stage__focus {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(16, 22, 21, 0.7);
+  border: 1px solid rgba(246, 235, 217, 0.14);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+}
+
+.hud-overlay {
+  position: absolute;
+  inset: auto 16px 16px 16px;
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(14, 18, 18, 0.8), rgba(14, 18, 18, 0.54));
+  border: 1px solid rgba(246, 235, 217, 0.12);
+  color: var(--ink);
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+}
+
+.hud-overlay__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.hud-overlay__quality {
+  color: var(--sand);
+}
+
+.teleop-readouts {
+  display: grid;
+  gap: 10px;
+}
+
+.teleop-readouts small,
+.side-brief li {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.side-brief ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+@media (max-width: 1100px) {
+  .dashboard-layout,
+  .overview-grid,
+  .command-bar {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .command-bar {
+    align-items: start;
+  }
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    padding: 14px;
+  }
+
+  .command-bar__metrics,
+  .overview-stats,
+  .selected-node dl,
+  .action-card dl {
+    grid-template-columns: 1fr;
+  }
+
+  .action-card__controls {
+    flex-direction: column;
+  }
+}
